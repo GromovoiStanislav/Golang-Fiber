@@ -1,0 +1,26 @@
+###
+GET http://localhost:3000/healthcheck
+Accept: */*
+Cache-Control: no-cache
+
+###
+GET http://localhost:3000/api/todos
+Accept: */*
+Cache-Control: no-cache
+
+###
+POST http://localhost:3000/api/todos
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "title": "go to the store",
+  "done": false,
+  "body": "go to the store"
+}
+
+###
+PATCH http://localhost:3000/api/todos/2/done
+Accept: */*
+Cache-Control: no-cache
