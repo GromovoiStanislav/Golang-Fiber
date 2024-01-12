@@ -1,0 +1,19 @@
+###
+GET http://localhost:3000/healthcheck
+Accept: */*
+Cache-Control: no-cache
+
+###
+GET http://localhost:3000/api/products
+Accept: */*
+Cache-Control: no-cache
+
+###
+POST http://localhost:3000/api/products
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "title": "product #3"
+}
