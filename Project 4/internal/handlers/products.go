@@ -61,13 +61,11 @@ func CreateProduct(c *fiber.Ctx) error {
 	}
 
 	errors := ValidateProductStruct(product)
-
 	if errors != nil {
 		return c.JSON(errors)
 	}
 
 	client, err := db.GetMongoClient()
-
 	if err != nil {
 		return err
 	}
@@ -75,7 +73,6 @@ func CreateProduct(c *fiber.Ctx) error {
 	collection := client.Database(db.Database).Collection(string(db.ProductsCollection))
 
 	_, err = collection.InsertOne(context.TODO(), product)
-
 	if err != nil {
 		return err
 	}
@@ -86,9 +83,6 @@ func CreateProduct(c *fiber.Ctx) error {
 
 func GetAllProducts(c *fiber.Ctx) error {
 	client, err := db.GetMongoClient()
-
-	var products []*Product
-
 	if err != nil {
 		return err
 	}
@@ -98,21 +92,21 @@ func GetAllProducts(c *fiber.Ctx) error {
 	cur, err := collection.Find(context.TODO(), bson.D{
 		primitive.E{},
 	})
-
 	if err != nil {
 		return err
 	}
 
+	var products []*Product
+
 	for cur.Next(context.TODO()) {
 		var p Product
-		err := cur.Decode(&p)
 
+		err := cur.Decode(&p)
 		if err != nil {
 			return err
 		}
 
 		products = append(products, &p)
-
 	}
 
 	return c.JSON(products)
