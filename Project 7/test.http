@@ -1,0 +1,12 @@
+@api = http://localhost:3000
+
+### Create a new user
+POST {{api}}/users
+Content-Type: application/json
+
+{
+    "name": "Tom"
+}
+
+### Get all users
+GET {{api}}/users

@@ -6,3 +6,4 @@
 - 4 - Fiber with MongoDB simple example
 - 5 - Example Fiber web-server with MongoDB
 - 6 - Fiber with MongoDB REST API
+- 7 - Fiber with MongoDB REST API and React
