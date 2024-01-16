@@ -1,0 +1,35 @@
+@api = http://localhost:3000
+@id = 65a61992cfe2a7c853d3d02e
+
+
+### ping
+GET {{api}}/ping
+
+### Create a new user
+POST {{api}}/users
+Content-Type: application/json
+
+{
+    "name": "pepe2",
+    "location": "somewhere",
+    "title": "engineer"
+}
+
+### Get all users
+GET {{api}}/users
+
+### Get a user
+GET {{api}}/users/{{id}}
+
+### Delete a user
+DELETE {{api}}/users/{{id}}
+
+### Update a user
+PATCH {{api}}/users/{{id}}
+Content-Type: application/json
+
+{
+    "name": "Joe",
+    "location": "california",
+    "title": "CEO"
+}
