@@ -46,11 +46,11 @@ func main() {
 		c.BodyParser(&user)
 
 		coll := client.Database("gomongodb").Collection("users")
+		
 		result, err := coll.InsertOne(context.TODO(), bson.D{{
 			Key:   "name",
 			Value: user.Name,
 		}})
-
 		if err != nil {
 			panic(err)
 		}
@@ -64,8 +64,8 @@ func main() {
 		var users = []models.User{}
 
 		coll := client.Database("gomongodb").Collection("users")
+		
 		results, error := coll.Find(context.TODO(), bson.M{})
-
 		if error != nil {
 			panic(error)
 		}
