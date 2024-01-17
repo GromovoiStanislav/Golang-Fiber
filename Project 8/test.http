@@ -1,0 +1,36 @@
+@api = http://localhost:3000
+@id = 65a7a8c9102699b241bbc307
+
+
+### Create a new book
+POST {{api}}/books
+Content-Type: application/json
+
+{
+    "title": "test book",
+    "author": "me",
+    "year": "2022"
+}
+
+
+### Return all books
+GET {{api}}/books
+
+
+### Return a single book
+GET {{api}}/books/{{id}}
+
+
+### Update a book
+PUT {{api}}/books/{{id}}
+Content-Type: application/json
+
+{
+    "title": "test book",
+    "author": "me",
+    "year": "2023"
+}
+
+
+### Delete a book
+DELETE {{api}}/books/{{id}}
