@@ -1,0 +1,36 @@
+@api = http://localhost:3000
+@libraryId = 65a7b11c60934775fa05c20c
+
+
+### check health
+GET {{api}}/health
+
+
+### Return all libraries
+GET {{api}}/library
+
+
+### Create a new library
+POST {{api}}/library
+Content-Type: application/json
+
+{
+    "name": "test library",
+    "address": "some adress"
+}
+
+
+### Delete a library
+DELETE {{api}}/library/{{libraryId}}
+
+
+
+### Create a new book
+POST {{api}}/library/{{libraryId}}/books
+Content-Type: application/json
+
+{
+    "title": "test book",
+    "author": "me",
+    "year": "2022"
+}
