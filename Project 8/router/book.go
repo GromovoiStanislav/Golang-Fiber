@@ -22,8 +22,9 @@ func AddBookGroup(app *fiber.App) {
 func getBooks(c *fiber.Ctx) error {
 	coll := common.GetDBCollection("books")
 
-	// find all books
 	books := make([]models.Book, 0)
+
+	// find all books
 	cursor, err := coll.Find(c.Context(), bson.M{})
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{
@@ -56,6 +57,7 @@ func getBook(c *fiber.Ctx) error {
 			"error": "id is required",
 		})
 	}
+
 	objectId, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return c.Status(400).JSON(fiber.Map{
@@ -90,8 +92,10 @@ func createBook(c *fiber.Ctx) error {
 		})
 	}
 
-	// create the book
+
 	coll := common.GetDBCollection("books")
+
+	// create the book
 	result, err := coll.InsertOne(c.Context(), b)
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{
@@ -128,6 +132,7 @@ func updateBook(c *fiber.Ctx) error {
 			"error": "id is required",
 		})
 	}
+
 	objectId, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return c.Status(400).JSON(fiber.Map{
@@ -135,8 +140,9 @@ func updateBook(c *fiber.Ctx) error {
 		})
 	}
 
-	// update the book
 	coll := common.GetDBCollection("books")
+
+	// update the book
 	result, err := coll.UpdateOne(c.Context(), bson.M{"_id": objectId}, bson.M{"$set": b})
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{
@@ -159,6 +165,7 @@ func deleteBook(c *fiber.Ctx) error {
 			"error": "id is required",
 		})
 	}
+
 	objectId, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return c.Status(400).JSON(fiber.Map{
@@ -166,8 +173,9 @@ func deleteBook(c *fiber.Ctx) error {
 		})
 	}
 
-	// delete the book
 	coll := common.GetDBCollection("books")
+
+	// delete the book
 	result, err := coll.DeleteOne(c.Context(), bson.M{"_id": objectId})
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{
