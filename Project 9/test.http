@@ -1,5 +1,6 @@
 @api = http://localhost:3000
-@libraryId = 65a7b11c60934775fa05c20c
+@libraryId = 65a8a1830d7aa23921cd7035
+@bookId = 65a8a18d0d7aa23921cd7036
 
 
 ### check health
@@ -15,9 +16,12 @@ POST {{api}}/library
 Content-Type: application/json
 
 {
-    "name": "test library",
+    "name": "test library 3",
     "address": "some adress"
 }
+
+### Get a library
+GET {{api}}/library/{{libraryId}}
 
 
 ### Delete a library
@@ -30,7 +34,19 @@ POST {{api}}/library/{{libraryId}}/books
 Content-Type: application/json
 
 {
-    "title": "test book",
+    "title": "test book 4",
     "author": "me",
     "year": "2022"
 }
+
+
+### Get all books of library
+GET {{api}}/library/{{libraryId}}/books
+
+
+### Get one book of library
+GET {{api}}/library/{{libraryId}}/books/{{bookId}}
+
+
+### ### Delete a book of library
+DELETE {{api}}/library/{{libraryId}}/books/{{bookId}}
