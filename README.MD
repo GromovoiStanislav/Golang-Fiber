@@ -9,5 +9,4 @@
 - 7 - Fiber with MongoDB REST API and React
 - 8 - Fiber with MongoDB REST API example
 - 9 - Fiber with MongoDB REST API example
-- 10 - Fiber with MongoDB REST API example
-- 11 - Fiber with SQL (Gorm) REST API example
+- 10 - Fiber with SQL (Gorm) REST API example

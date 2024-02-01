@@ -6,6 +6,9 @@
 ### Get all todos
 GET {{api}}/
 
+### Get one todos
+GET {{api}}/10
+
 
 ### Create a new todo
 POST {{api}}/

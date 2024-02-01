@@ -11,14 +11,37 @@ import (
 )
 
 func GetTodosHandler(ctx *fiber.Ctx) error {
-	var result []models.Todo
+	var todos []models.Todo
 
-	if result := utils.DB.Find(&result); result.Error != nil {
+	if result := utils.DB.Find(&todos); result.Error != nil {
 		fmt.Println(result.Error)
 		return ctx.SendStatus(500)
 	}
 
-	return ctx.Status(200).JSON(result)
+	return ctx.Status(200).JSON(todos)
+}
+
+func GetTodoHandler(ctx *fiber.Ctx) error {
+	id := ctx.Params("id")
+	
+	var todo models.Todo
+
+
+	// if result := utils.DB.First(&todo,id); result.Error != nil {
+	// 	return ctx.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "Not Found todo by ID"})
+	// }
+
+	// OR:
+
+	if result := utils.DB.Find(&todo,id); result.Error != nil {
+		fmt.Println(result.Error)
+		return ctx.SendStatus(500)
+	}
+	if todo.Title == "" {
+		return ctx.Status(fiber.StatusNotFound).SendString("Not Found todo by ID")
+	}
+
+	return ctx.Status(200).JSON(todo)
 }
 
 func ValidateCreateTodo(ctx *fiber.Ctx) error {
