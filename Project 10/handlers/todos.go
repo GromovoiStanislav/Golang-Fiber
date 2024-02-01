@@ -26,7 +26,6 @@ func GetTodoHandler(ctx *fiber.Ctx) error {
 	
 	var todo models.Todo
 
-
 	// if result := utils.DB.First(&todo,id); result.Error != nil {
 	// 	return ctx.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "Not Found todo by ID"})
 	// }
@@ -56,6 +55,9 @@ func ValidateCreateTodo(ctx *fiber.Ctx) error {
 	return ctx.Next()
 }
 
+
+
+
 func CreateTodoHandler(ctx *fiber.Ctx) error {
 	newTodo := new(models.Todo)
 	if err := ctx.BodyParser(&newTodo); err != nil {
@@ -66,4 +68,38 @@ func CreateTodoHandler(ctx *fiber.Ctx) error {
 		return ctx.SendStatus(500)
 	}
 	return ctx.Status(201).JSON(newTodo)
+}
+
+
+func ValidateUpdateTodo(ctx *fiber.Ctx) error {
+	updateTodo := &dtos.UpdateTodoDto{}
+	if err := ctx.BodyParser(updateTodo); err != nil {
+		return ctx.Status(400).JSON(fiber.Map{"msg": "Error"})
+	}
+	if err := utils.Validator.Struct(updateTodo); err != nil {
+		fmt.Println(err)
+		return ctx.Status(400).JSON(fiber.Map{"msg": "Bad Request"})
+	}
+	return ctx.Next()
+}
+
+func UpdateTodoHandler(ctx *fiber.Ctx) error {
+	id := ctx.Params("id")
+
+	var todo models.Todo
+	if result := utils.DB.First(&todo,id); result.Error != nil {
+		return ctx.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "Not Found todo by ID"})
+	}
+
+	updateTodo := new(models.Todo)
+	if err := ctx.BodyParser(&updateTodo); err != nil {
+		return ctx.Status(400).JSON(fiber.Map{"msg": "Error"})
+	}
+
+	if result := utils.DB.Model(&todo).Updates(updateTodo); result.Error != nil {
+		fmt.Println(result.Error)
+		return ctx.SendStatus(500)
+	}
+	
+	return ctx.Status(201).JSON(todo)
 }

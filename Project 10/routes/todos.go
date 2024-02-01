@@ -10,4 +10,5 @@ func Todos(app *fiber.App) {
 	app.Get("/:id", handlers.GetTodoHandler)
 	app.Get("/", handlers.GetTodosHandler)
 	app.Post("/", handlers.ValidateCreateTodo, handlers.CreateTodoHandler)
+	app.Put("/:id", handlers.ValidateUpdateTodo, handlers.UpdateTodoHandler)
 }

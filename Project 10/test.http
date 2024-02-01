@@ -7,7 +7,7 @@
 GET {{api}}/
 
 ### Get one todos
-GET {{api}}/10
+GET {{api}}/1
 
 
 ### Create a new todo
@@ -20,3 +20,11 @@ Content-Type: application/json
   "description": "go to the store"
 }
 
+
+### Update a todo
+PUT  {{api}}/1
+Content-Type: application/json
+
+{
+  "progress": 60
+}
