@@ -1,6 +1,4 @@
 @api = http://localhost:3000/api/todos
-@libraryId = 65a8a1830d7aa23921cd7035
-@bookId = 65a8a18d0d7aa23921cd7036
 
 
 ### Get all todos

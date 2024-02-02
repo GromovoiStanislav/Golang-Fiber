@@ -1,0 +1,45 @@
+@api = http://localhost:3000
+
+
+GET {{api}}/
+
+
+### Get all
+GET {{api}}/api/bookmarks
+
+
+### Get one
+GET {{api}}/api/bookmarks/7
+
+
+### Create a new one
+POST {{api}}/api/bookmarks
+Content-Type: application/json
+
+{
+  "name": "name 4",
+  "url": "url 4"
+}
+
+
+### Update one
+PUT {{api}}/api/bookmarks/7
+Content-Type: application/json
+
+{
+  "name": "name 7",
+  "url": "url 7"
+}
+
+
+### Update one
+PATCH {{api}}/api/bookmarks/6
+Content-Type: application/json
+
+{
+  "url": "url 6"
+}
+
+
+### Delete one
+DELETE {{api}}/api/bookmarks/3
