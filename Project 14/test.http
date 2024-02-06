@@ -1,0 +1,38 @@
+@api = http://localhost:3000
+@dogId = 65c1dafab74aaab9d52e1e96
+
+
+### Return all dogs
+GET {{api}}/dogs
+
+
+### Create a new dog
+POST {{api}}/dogs
+Content-Type: application/json
+
+{
+    "name": "Tom",
+    "breed": "boxer",
+    "age": 1,
+    "isGoodBoy": true
+}
+
+### Get a dog
+GET {{api}}/dogs/{{dogId}}
+
+
+### Update a book
+PUT  {{api}}/dogs/{{dogId}}
+Content-Type: application/json
+
+{
+    "name": "Tomas",
+    "breed": "boxer",
+    "age": 2,
+    "isGoodBoy": false
+}
+
+
+### Delete a book
+DELETE {{api}}/dogs/{{dogId}}
+
