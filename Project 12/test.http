@@ -1,0 +1,17 @@
+@api= http://localhost:3000
+
+###
+GET {{api}}
+
+
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+  "name": "Tom",
+  "age": 1,
+  "isGoodBoy": true
+}
+
