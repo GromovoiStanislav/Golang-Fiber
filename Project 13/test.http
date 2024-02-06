@@ -1,0 +1,7 @@
+GET http://localhost:3000
+Accept: */*
+Cache-Control: no-cache
+
+###
+GET http://localhost:3000/2
+Accept: */*
