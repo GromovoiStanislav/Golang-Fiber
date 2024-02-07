@@ -1,0 +1,31 @@
+@api = http://localhost:3000/api
+
+
+### register a new user
+POST {{api}}/register
+Content-Type: application/json
+
+{
+  "name": "Tom",
+  "email": "toma@gmail.com",
+  "password": "123"
+}
+
+
+### login a user
+POST {{api}}/login
+Content-Type: application/json
+
+{
+  "email": "tom@gmail.com",
+  "password": "123"
+}
+
+
+### Get a user
+GET {{api}}/user
+
+
+
+### logout a user
+POST {{api}}/logout

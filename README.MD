@@ -15,3 +15,4 @@
 - 13 - Fiber сaching using Redis
 - 14 - Fiber with MongoDB REST API example
 - 15 - Fiber with MySQL (Gorm) REST API example
+- 16 - Fiber with MySQL (Gorm) Auth REST API example
