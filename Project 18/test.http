@@ -1,0 +1,29 @@
+@api = http://localhost:3000
+@id = 1
+
+
+### Get Hello
+GET {{api}}
+
+
+### Get all books
+GET {{api}}/api/v1/book
+
+
+### Get one book
+GET {{api}}/api/v1/book/{{id}}
+
+
+### Create a new book
+POST {{api}}/api/v1/book
+Content-Type: application/json
+
+{
+    "name": "name 2",
+    "author": "Stivenson",
+    "rating": 10
+}
+
+
+### Delete a book
+DELETE {{api}}/api/v1/book/{{id}}

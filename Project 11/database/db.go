@@ -25,8 +25,6 @@ func InitDB() error {
 
 	db.AutoMigrate(&Bookmark{})
 
-	
-
 	return nil
 }
 

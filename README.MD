@@ -17,3 +17,4 @@
 - 15 - Fiber with MySQL (Gorm) REST API example
 - 16 - Fiber with MySQL (Gorm) Auth REST API example
 - 17 - Fiber with SQLite (Gorm) REST API example
+- 18 - Fiber with SQLite (Gorm) REST API simple example
