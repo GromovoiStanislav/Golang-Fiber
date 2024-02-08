@@ -1,0 +1,43 @@
+@api = http://localhost:3000/api/v1/articles
+@id=95af5a22-ad85-468a-9dbb-97a97cc98777
+
+
+###
+GET {{api}}
+Cache-Control: no-cache
+
+
+###
+GET {{api}}/{{id}}
+Cache-Control: no-cache
+
+
+###
+POST {{api}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "author": "Mary Doe",
+  "title": "gRPC with Go for beginners",
+  "description": "description...",
+  "rate": 5
+}
+
+
+###
+PUT  {{api}}/{{id}}
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "author": "Mary Doe",
+  "title": "gRPC with Go for beginners",
+  "description": "description...",
+  "rate": 7
+}
+
+
+###
+DELETE  {{api}}/{{id}}
+Cache-Control: no-cache

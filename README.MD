@@ -19,3 +19,4 @@
 - 17 - Fiber with SQLite (Gorm) REST API example
 - 18 - Fiber with SQLite (Gorm) REST API simple example
 - 19 - Fiber with SQLite (Gorm) REST API example
+- 20 - Fiber simple example
