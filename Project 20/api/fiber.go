@@ -15,7 +15,6 @@ func createArticle(c *fiber.Ctx) error {
    article := new(database.Article)
  
    err := c.BodyParser(&article)
- 
    if err != nil {
        return c.Status(fiber.StatusUnprocessableEntity).JSON(fiber.Map{
            "errors": err.Error(),
