@@ -1,0 +1,31 @@
+@api = http://localhost:3000
+@isin = 045679
+
+
+### Get Hello
+GET {{api}}
+
+
+### Get all books
+GET {{api}}/api/v1/book
+
+
+### Get one book
+GET {{api}}/api/v1/book/{{isin}}
+
+
+### Create a new book
+POST {{api}}/api/v1/book
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+    "isin": "045679",
+    "title": "title 2",
+    "author": "Stivenson",
+    "rating": 10
+}
+
+
+### Delete a book
+DELETE {{api}}/api/v1/book/{{isin}}
